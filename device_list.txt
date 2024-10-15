@@ -1,0 +1,808 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Device List</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="type" />
+        <link rel="icon" type="image/ico" href="/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="/baseINID.css" />
+        <link rel="stylesheet" type="text/css" href="/INID.css" />
+<script type="text/css"><!--
+<style id="antiClickjack" type="text/css">body{display:none;}</style>
+//-->
+</script>
+    <script language="javascript" type="text/javascript"><!--
+  adImages=new Array('/images/Block1.gif','/images/Block3.gif','/images/Block5.gif','/images/Block7.gif','/images/Block9.gif','/images/Block11.gif','/images/Block14.gif')
+  thisAd=0
+  imgCt=adImages.length
+if (self == top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+} else {
+    top.location = self.location;
+}
+function rotate(){
+    if (document.images) {
+        thisAd++
+            if (thisAd==imgCt){
+                thisAd=0
+            }
+        document.adBanner.src=adImages[thisAd]
+            setTimeout('rotate()',200)
+    }
+}
+function reloadPage()
+{
+    if (document.forms[0].hidden.value == "update_refresh") {
+      rotate()
+    }
+    else if (document.forms[0].hidden.value == "freshen") {
+      setTimeout("self.location.reload(true)", 10000)
+      rotate()
+    }
+}
+
+
+//-->
+</script>
+    </head>
+           <body>
+  <div id="wrapper">
+    <div id="whole-page">
+      <div id="main-content">
+        <div id="header">
+          <div id="tab-container">
+            <div id="logo-div">
+	      <img id="main-logo" src="/images/att_logo.png" alt="" style="height:42px;" />
+            </div>
+            <div style="clear: both;"></div>
+<div id="skip"><a href="#content-sub">Skip to Main Content</a></div>
+            <div id="top-navigation">
+              <div id="top-navigation-buttons">
+<a class="topnav topnavselected" href="/cgi-bin/home.ha"><span>Device</span></a>
+<a class="topnav" href="/cgi-bin/broadbandstatistics.ha"><span>Broadband</span></a>
+<a class="topnav" href="/cgi-bin/lanstatistics.ha"><span>
+Home Network
+</span></a>
+
+<a class="topnav" href="/cgi-bin/voice.ha"><span>Voice</span></a>
+<a class="topnav" href="/cgi-bin/firewall.ha"><span>Firewall</span></a>
+<a class="topnav" href="/cgi-bin/diag.ha"><span>Diagnostics</span></a>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+          <div id="secondary-nav">
+            <div id="secondary-nav-buttons">
+<a class="secondary-link" href="/cgi-bin/home.ha">Status</a>
+<a class="secondary-link sec-selected" href="/cgi-bin/devices.ha">Device List</a>
+<a class="secondary-link" href="/cgi-bin/sysinfo.ha">System Information</a>
+<a class="secondary-link" href="/cgi-bin/routerpasswd.ha">Access Code</a>
+<a class="secondary-link" href="/cgi-bin/remoteaccess.ha">Remote Access</a>
+<a class="secondary-link" href="/cgi-bin/restart.ha">Restart Device</a>
+                  </div></div></div>
+                <div style="clear: both;"></div>
+              </div>
+        <div style="clear: both;"></div>
+      <div id="mid-section">
+          <div id="content-padding"><!-- CONTENT -->
+            <div id="content"
+><div id="content-sub">
+                <div class="first-section-header">
+                 <h1>Device List</h1>
+                 </div>
+                   <form method="post" action="/cgi-bin/devices.ha">
+<input type="hidden" name="nonce" value="04677b8c9bd8b65a583f8e3d55ddccf600ad27e4bd36fe90d043757c86dea920" />
+                 <div class="section-content">
+                 <h2>Home Network Devices&nbsp;&nbsp;</h2>
+                 <input type="submit" name="Clear" class="cssbtn largebtn" value="Clear and Rescan for Devices"  />
+                 <table class="table100" summary="This table displays info for each LAN-side device">
+<tr><th scope="row">MAC Address</th><td class="col2">
+14:13:33:8f:c8:1b
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.212
+ / unknown1413338fc81b
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:31:12 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+static
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Ethernet LAN-3
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+<td class="col2">1000Mbps	fullduplex
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:7656:3cff:fe3a:1f07
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+fe80::7656:3cff:fe3a:1f07
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+1c:1b:0d:0a:a7:ac
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.249
+ / box
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:32:54 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Ethernet LAN-3
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+<td class="col2">1000Mbps	fullduplex
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:c374:3966:1aa9:965
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:7ed7:4644:2f05:72b
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570::47
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:6b5a:15dd:ee0f:cc9b
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:f757:5222:4096:5a54
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+fe80::7598:f64f:fe8e:7a46
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+1e:3f:ce:84:21:ec
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.64
+ / iPhone
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:32:56 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Wi-Fi <img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" />&nbsp; <br />5 GHz Radio-1<br />Type: Home<br />Name: ATTrF43nu6
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:fd39:b5f9:f835:183b
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:4f:ad2c:97db:56
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+fe80::88e:1a68:cd66:ae61
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+2a:b5:88:7f:91:33
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.203
+ / unknown2ab5887f9133
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:33:08 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Wi-Fi <img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" />&nbsp; <br />5 GHz Radio-2<br />Type: Home<br />Name: ATTrF43nu6
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+2c:f0:5d:84:9f:7f
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.193
+ / zen
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:32:40 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Ethernet LAN-3
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+<td class="col2">1000Mbps	fullduplex
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:8018:c035:a7ff:4aca
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570::30
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+fe80::6194:6de0:4909:7fc6
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+34:02:86:1f:fa:e5
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.65
+ / think
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:32:12 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Wi-Fi <img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" />&nbsp; <br />5 GHz Radio-1<br />Type: Home<br />Name: ATTrF43nu6
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:ca9:eeca:f21a:7e6d
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570::46
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+fe80::8804:aaa3:350f:fd2e
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+50:de:06:be:c4:34
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.230
+ / Blakes-Air
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 19:27:55 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Wi-Fi <img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" />&nbsp; <br />5 GHz Radio-1<br />Type: Home<br />Name: ATTrF43nu6
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+54:60:09:e8:d6:f4
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.196
+ / Chromecast-Audio
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:33:20 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Wi-Fi <img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" />&nbsp; <br />5 GHz Radio-1<br />Type: Home<br />Name: ATTrF43nu6
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+6c:7e:67:d9:c6:05
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.231
+ / macbookPro
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 12:53:17 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+off
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Wi-Fi<br />5 GHz Radio-1<br />Type: Home<br />Name: ATTrF43nu6
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+74:56:3c:3a:1f:07
+</td></tr>
+<tr><th scope="row">Name</th><td class="col2">
+unknown74563c3a1f07
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:26:15 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+pending
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Ethernet LAN-3
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+<td class="col2">1000Mbps	fullduplex
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+7a:7a:46:1d:28:46
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.253
+ / Mac
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:32:54 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Wi-Fi <img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" />&nbsp; <br />5 GHz Radio-1<br />Type: Home<br />Name: ATTrF43nu6
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:b83b:fac8:4b31:d7b3
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:18c7:f430:11f2:c728
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+fe80::1494:72ec:6d29:84aa
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+a8:a1:59:34:f4:84
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.205
+ / Blakes-PC
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:33:19 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Ethernet LAN-2
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+<td class="col2">1000Mbps	fullduplex
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:f463:3604:c8bc:9b7f
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570::18
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:a0e:9c6e:1b35:c38f
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+fe80::5640:9b47:66e2:c5c7
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+ce:2f:9d:bb:80:11
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.202
+ / unknownce2f9dbb8011
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:33:09 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Wi-Fi <img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" />&nbsp; <br />5 GHz Radio-1<br />Type: Home<br />Name: ATTrF43nu6
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:1886:138e:fbd4:e053
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+2600:1700:7bdb:4570:e973:356c:c77:8c5f
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+2592000s
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+604800s
+</td></tr>
+<tr><th scope="row">IPv6 Address</th><td class="col2">
+fe80::1cbc:8be4:9710:a4d7
+</td></tr>
+<tr><th scope="row">Type</th><td class="col2">
+slaac
+</td></tr>
+<tr><th scope="row">Valid Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><th scope="row">Preferred Lifetime</th><td class="col2">
+forever
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+<tr><th scope="row">MAC Address</th><td class="col2">
+d8:a0:11:2b:31:40
+</td></tr>
+<tr><th scope="row">IPv4 Address / Name</th><td class="col2">
+192.168.1.204
+ / wiz_2b3140
+</td></tr>
+<tr><th scope="row">Last Activity</th><td class="col2">
+Mon Oct 14 20:33:11 2024
+</td></tr>
+<tr><th scope="row">Status</th><td class="col2">
+on
+</td></tr>
+<tr><th scope="row">Allocation</th><td class="col2">
+dhcp
+</td></tr>
+<tr><th scope="row">Connection Type</th>
+<td class="col2"><pre class="column">Wi-Fi <img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" />&nbsp; <br />2.4 GHz<br />Type: Home<br />Name: ATTrF43nu6
+</pre></td></tr>
+<tr><th scope="row">Connection Speed</th>
+</td></tr>
+<tr><th scope="row">Mesh Client</th><td class="col2">
+No
+</td></tr>
+<tr><td colspan="2"><hr class="reshr" noshade="noshade" /></td></tr>
+</table>
+</div>
+</form>
+                </div>
+              </div>
+            </div>
+ <!-- isWANUP -->
+            <div id="help">
+              <div id="help-sub">
+              <h2>Help</h2><br />
+<p>The device list page shows all items of the LAN Host Discovery table. Use the &quot;Clear and Rescan for Devices&quot; button to reset the devices table and do a fresh search for connected LAN devices.</p>
+<p>
+Allocation types include static and dhcp. When the allocation type of a device has not yet been determined, it is marked pending.
+Devices that are powered off will continue to appear in the table, but be shown as &quot;off&quot; for a period of more than a day.</p>
+<p>The Last Activity display will be blank if the WAN is down or the device cannot reach a time server.</p>
+              </div> <!-- help-sub -->
+            </div> <!-- help -->
+            <div style="clear: both;"></div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+      <div id="footer">
+      <div><br>
+   <span class="inner">&copy; 2016-2023 AT&T Intellectual Property. All rights reserved. AT&T and Globe logo are registered trademarks of AT&T Intellectual Property.</span>
+   <span class="sitemap"><a href="/cgi-bin/sitemap.ha">Site Map</a></span></br></div>
+   <div><span class="inner">&copy; 2016 ARRIS Enterprises LLC. All rights reserved. ARRIS is a registered trademark of ARRIS Enterprises LLC.</span></div>
+   </div>
+      </div>
+</body>
+</html>
