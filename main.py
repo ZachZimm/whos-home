@@ -29,13 +29,14 @@ def log_device_activity(mac_address, action):
     device_info = device_registry.get(mac_address, {})
     user = device_info.get('user', 'Unknown')
     device_name = device_info.get('device_name', 'Unknown Device')
+    ip_address = ip_mac_mapping.get(mac_address, 'Unknown IP')
 
     with open('device_log.csv', 'a', newline='') as csvfile:
         logwriter = csv.writer(csvfile)
         logwriter.writerow([
             datetime.now(),
             mac_address,
-            ip_mac_mapping[mac_address],
+            ip_address,
             device_name,
             user,
             action
