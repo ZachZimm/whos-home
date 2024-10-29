@@ -43,8 +43,7 @@ def log_device_activity(mac_address, action):
         ])
 
 def update_device_last_seen(mac_address):
-    if mac_address not in device_last_seen:
-        log_device_activity(mac_address, 'Connected')
+    log_device_activity(mac_address, 'Connected')
     device_last_seen[mac_address] = time.time()
 
 def check_for_disconnections(timeout=300):
