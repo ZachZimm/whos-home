@@ -31,6 +31,9 @@ def log_device_activity(mac_address, action):
     device_name = device_info.get('device_name', 'Unknown Device')
     ip_address = ip_mac_mapping.get(mac_address, 'Unknown IP')
 
+    if device_name == "router":
+        return
+
     with open('device_log.csv', 'a', newline='') as csvfile:
         logwriter = csv.writer(csvfile)
         logwriter.writerow([
