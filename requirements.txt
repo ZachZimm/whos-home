@@ -1,3 +1,5 @@
 pyshark
 beautifulsoup4
 scapy
+fastapi
+uvicorn
