@@ -146,6 +146,7 @@ def check_for_disconnections(timeout=300):
 def main():
     global connected_devices, ip_mac_mapping
     interface = 'wlp4s0'
+    disconnect_check = 15
     if len(sys.argv) > 1:
         interface = sys.argv[1]
     capture = pyshark.LiveCapture(interface=interface)
@@ -167,7 +168,7 @@ def main():
                     ip_mac_mapping[mac_address] = ip_address
                 if mac_address:
                     update_device_last_seen(mac_address)
-            if time.time() - last_disconnect_check > 10:
+            if time.time() - last_disconnect_check > disconnect_check: # check for disconnections every disconnect_check seconds
                 last_disconnect_check = time.time()
                 check_for_disconnections()
         except AttributeError:
@@ -177,15 +178,15 @@ app = FastAPI()
 
 @app.get('/connections')
 def get_connections():
-    with connection_log_lock:
-        data = {}
-        for mac_address, events in connection_log.items():
-            data[mac_address] = []
-            for event in events:
-                data[mac_address].append({
-                    'timestamp': event['timestamp'].isoformat(),
-                    'status': event['status']
-                })
+    data = {}
+    _connection_log = load_connection_log()
+    for mac_address, events in _connection_log.items():
+        data[mac_address] = []
+        for event in events:
+            data[mac_address].append({
+                'timestamp': event['timestamp'].isoformat(),
+                'status': event['status']
+            })
     return data
 
 @app.get('/devices')
@@ -193,9 +194,12 @@ def get_devices():
     return device_registry
 
 if __name__ == '__main__':
-    # Initialize database
+    if 'help' in sys.argv:
+        print('Usage: python main.py [interface name]')
+        print('Example: python main.py wlp4s0')
+        exit()
+
     init_db()
-    # Load connection_log from database
     connection_log = load_connection_log()
 
     # Start packet sniffing in a separate thread

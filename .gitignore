@@ -2,4 +2,5 @@ venv/
 __pycache__/
 *._*
 device_log.csv
+connections.db
 
