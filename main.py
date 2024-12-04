@@ -6,6 +6,7 @@ import time
 from datetime import datetime
 import sqlite3
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import threading
 from typing import Dict, List, Any
@@ -199,6 +200,20 @@ def main():
             continue
 
 app = FastAPI()
+# allow CORS
+# origins = [ "http://192.168.1.193:5173",
+#             "http://localhost:5173",
+#             "http://host.zzimm.com:5173",
+#             "https://host.zzimm.com",
+#             ]
+origins = ["*"] # allow all origins for now
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get('/connections')
 def get_connections():
@@ -216,7 +231,9 @@ def get_connections():
         consolidated_events = []
         last_event = None
         for event in events:
-            if last_event and (event['timestamp'] - last_event['timestamp']).total_seconds() < 300:
+            event_date = datetime.fromisoformat(event['timestamp'])
+            last_event_date = datetime.fromisoformat(last_event['timestamp']) if last_event else event_date
+            if last_event and (event_date - last_event_date).total_seconds() < 300:
                 continue  # Skip event
             consolidated_events.append(event)
             last_event = event
