@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/accordion";
 
 function App() {
-  const serverUrl = "http://localhost:1234";
+  let serverUrl = window.location.origin;
+  serverUrl = window.location.protocol + serverUrl.split(":")[1] + ":1234";
   const connectionsUrl = serverUrl + "/connections";
   const devicesUrl = serverUrl + "/devices";
   const [connections, setConnections] = useState({});
