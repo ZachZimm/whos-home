@@ -73,7 +73,7 @@ def arp_ping(ip, is_retry=False):
     arp_request = ARP(pdst=ip)
     broadcast = Ether(dst="ff:ff:ff:ff:ff:ff")
     arp_request_broadcast = broadcast/arp_request
-    answered_list = srp(arp_request_broadcast, timeout=1, verbose=False)[0]
+    answered_list = srp(arp_request_broadcast, timeout=2, verbose=False)[0]
     # return whether the IP is online
     responded = len(answered_list) > 0
     if not responded and not is_retry:
@@ -128,25 +128,45 @@ def log_device_activity(mac_address, action):
 
 def update_device_last_seen(mac_address):
     global connected_devices
-    log_device_activity(mac_address, 'Connected')
-    connected_devices[mac_address] = (time.time(), True)
+    current_time = time.time()
+    if mac_address in connected_devices:
+        connected_devices[mac_address]['last_seen'] = current_time
+        if not connected_devices[mac_address]['status']:
+            log_device_activity(mac_address, 'Connected')
+            connected_devices[mac_address]['status'] = True
+            connected_devices[mac_address]['fail_count'] = 0
+    else:
+        connected_devices[mac_address] = {
+            'last_seen': current_time,
+            'status': True,
+            'fail_count': 0
+        }
+        log_device_activity(mac_address, 'Connected')
 
-def check_for_disconnections(timeout=300):
+MAX_FAIL_COUNT = 3
+def check_for_disconnections():
     global connected_devices
-    for mac_address in list(connected_devices.keys()):
+    for mac_address, info in connected_devices.items():
         ip_address = ip_mac_mapping.get(mac_address)
         if not ip_address:
             continue
-        ping = arp_ping(ip_address)
-        if not ping:
-            log_device_activity(mac_address, 'Disconnected')
-            connected_devices[mac_address] = (time.time(), False)
-    return
+        if not arp_ping(ip_address):
+            info['fail_count'] += 1
+            if info['fail_count'] >= MAX_FAIL_COUNT:
+                if info['status'] == True:
+                    log_device_activity(mac_address, 'Disconnected')
+                    info['status'] = False
+        else:
+            info['fail_count'] = 0
+            if info['status'] == False:
+                log_device_activity(mac_address, 'Connected')
+                info['status'] = True
+
 
 def main():
     global connected_devices, ip_mac_mapping
     interface = 'wlp4s0'
-    disconnect_check = 15
+    disconnect_check = 60
     if len(sys.argv) > 1:
         interface = sys.argv[1]
     capture = pyshark.LiveCapture(interface=interface)
@@ -165,6 +185,10 @@ def main():
                 if 'ARP' in packet:
                     mac_address = packet.arp.src_hw_mac
                     ip_address = packet.arp.src_proto_ipv4
+                    ip_mac_mapping[mac_address] = ip_address
+                if 'IP' in packet:
+                    mac_address = packet.eth.src
+                    ip_address = packet.ip.src
                     ip_mac_mapping[mac_address] = ip_address
                 if mac_address:
                     update_device_last_seen(mac_address)
@@ -187,7 +211,17 @@ def get_connections():
                 'timestamp': event['timestamp'].isoformat(),
                 'status': event['status']
             })
-    return data
+    consolidated_data = {}
+    for mac_address, events in data.items():
+        consolidated_events = []
+        last_event = None
+        for event in events:
+            if last_event and (event['timestamp'] - last_event['timestamp']).total_seconds() < 300:
+                continue  # Skip event
+            consolidated_events.append(event)
+            last_event = event
+        consolidated_data[mac_address] = consolidated_events
+    return consolidated_data
 
 @app.get('/devices')
 def get_devices():
